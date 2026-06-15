@@ -1,0 +1,284 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with balance information",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "role": { "type": "string" },
+        "availableBalance": { "type": "integer" },
+        "pendingBalance": { "type": "integer" },
+        "totalCashback": { "type": "integer" },
+        "referralCode": { "type": "string" },
+        "registeredAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["username", "role", "availableBalance", "pendingBalance", "totalCashback", "referralCode", "registeredAt"]
+    },
+    "Password": {
+      "title": "Password",
+      "description": "Hashed password for standard mock auth logins",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "hash": { "type": "string" }
+      },
+      "required": ["username", "hash"]
+    },
+    "ShortLink": {
+      "title": "ShortLink",
+      "description": "Short links created by users for shopee/tiktok tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "originalUrl": { "type": "string" },
+        "shortUrl": { "type": "string" },
+        "clicks": { "type": "integer" },
+        "platform": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "originalUrl", "shortUrl", "clicks", "platform", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Cashback tracking order",
+      "type": "object",
+      "properties": {
+        "orderId": { "type": "string" },
+        "username": { "type": "string" },
+        "time": { "type": "string", "format": "date-time" },
+        "rebateAmount": { "type": "integer" },
+        "rawCommission": { "type": "integer" },
+        "status": { "type": "string" },
+        "productName": { "type": "string" },
+        "platform": { "type": "string" },
+        "syncedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["orderId", "username", "time", "rebateAmount", "rawCommission", "status", "productName", "platform", "syncedAt"]
+    },
+    "WithdrawRequest": {
+      "title": "WithdrawRequest",
+      "description": "User cashout request details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "amount": { "type": "integer" },
+        "bankName": { "type": "string" },
+        "accountNumber": { "type": "string" },
+        "accountHolder": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "processedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "amount", "bankName", "accountNumber", "accountHolder", "status", "createdAt"]
+    },
+    "WalletTransaction": {
+      "title": "WalletTransaction",
+      "description": "Wallet transactional ledger",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "amount": { "type": "integer" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "amount", "type", "description", "createdAt"]
+    },
+    "InternalNotification": {
+      "title": "InternalNotification",
+      "description": "User dashboard notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "title", "content", "isRead", "createdAt"]
+    },
+    "SupportTicket": {
+      "title": "SupportTicket",
+      "description": "User missing cashback or lost order claim tickets",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "orderId": { "type": "string" },
+        "platform": { "type": "string" },
+        "purchaseDate": { "type": "string" },
+        "amount": { "type": "integer" },
+        "imageProof": { "type": "string" },
+        "status": { "type": "string" },
+        "feedback": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "orderId", "platform", "purchaseDate", "amount", "status", "createdAt"]
+    },
+    "WebContent": {
+      "title": "WebContent",
+      "description": "Dynamic layout text content of the website",
+      "type": "object",
+      "properties": {
+        "bannerTitle": { "type": "string" },
+        "bannerDesc": { "type": "string" },
+        "bannerSub": { "type": "string" },
+        "showPopup": { "type": "boolean" },
+        "popupContent": { "type": "string" },
+        "step1_title": { "type": "string" },
+        "step1_desc": { "type": "string" },
+        "step2_title": { "type": "string" },
+        "step2_desc": { "type": "string" },
+        "step3_title": { "type": "string" },
+        "step3_desc": { "type": "string" },
+        "step4_title": { "type": "string" },
+        "step4_desc": { "type": "string" },
+        "tabCorrectTitle": { "type": "string" },
+        "tabCorrectContent": { "type": "string" },
+        "tabPolicyTitle": { "type": "string" },
+        "tabPolicyContent": { "type": "string" },
+        "tabTipsTitle": { "type": "string" },
+        "tabTipsContent": { "type": "string" },
+        "footerName": { "type": "string" },
+        "footerDesc": { "type": "string" },
+        "footerContact": { "type": "string" },
+        "footerCopyright": { "type": "string" },
+        "footerSocialLink": { "type": "string" },
+        "showHelp": { "type": "boolean" },
+        "showPrivacy": { "type": "boolean" },
+        "showTerms": { "type": "boolean" },
+        "helpContent": { "type": "string" },
+        "privacyContent": { "type": "string" },
+        "termsContent": { "type": "string" }
+      },
+      "required": ["bannerTitle", "bannerDesc", "bannerSub"]
+    },
+    "Voucher": {
+      "title": "Voucher",
+      "description": "Voucher/Coupon list model",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "discount": { "type": "integer" },
+        "description": { "type": "string" },
+        "expiry": { "type": "string" }
+      },
+      "required": ["id", "code", "discount"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "Social feed user comments",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "username", "content", "createdAt"]
+    },
+    "AffiliateConfig": {
+      "title": "AffiliateConfig",
+      "description": "Global affiliate config IDs and rebate percentages",
+      "type": "object",
+      "properties": {
+        "affiliateId": { "type": "string" },
+        "subId": { "type": "string" },
+        "rebatePercent": { "type": "integer" },
+        "tiktokCommissionRate": { "type": "integer" }
+      },
+      "required": ["affiliateId", "subId", "rebatePercent"]
+    },
+    "TikTokSyncLog": {
+      "title": "TikTokSyncLog",
+      "description": "TikTok Order automatic and manual sync logs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "syncedAt": { "type": "string", "format": "date-time" },
+        "newOrdersCount": { "type": "integer" },
+        "updatedOrdersCount": { "type": "integer" },
+        "error": { "type": "string" }
+      },
+      "required": ["id", "syncedAt", "newOrdersCount", "updatedOrdersCount"]
+    },
+    "ExcelUploadLog": {
+      "title": "ExcelUploadLog",
+      "description": "Log when admin uploads Shopee excel files",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "filename": { "type": "string" },
+        "operator": { "type": "string" },
+        "matchedOrders": { "type": "integer" },
+        "newOrders": { "type": "integer" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "filename", "operator", "matchedOrders", "newOrders", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users": {
+      "schema": "User",
+      "description": "Users stored by username as document ID"
+    },
+    "passwords": {
+      "schema": "Password",
+      "description": "Admin and user hashed passwords mapped by username"
+    },
+    "short_links": {
+      "schema": "ShortLink",
+      "description": "Total shortened platform cashbacks tracking links"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "All Shopee and TikTok orders"
+    },
+    "withdraw_requests": {
+      "schema": "WithdrawRequest",
+      "description": "Cashing out records request tracker"
+    },
+    "transactions": {
+      "schema": "WalletTransaction",
+      "description": "Wallet activity transaction records"
+    },
+    "notifications": {
+      "schema": "InternalNotification",
+      "description": "Internal notifications inbox metadata"
+    },
+    "tickets": {
+      "schema": "SupportTicket",
+      "description": "Claims tickets for lost shopee and tiktok orders"
+    },
+    "vouchers": {
+      "schema": "Voucher",
+      "description": "Shared available coupons"
+    },
+    "comments": {
+      "schema": "Comment",
+      "description": "Feed discussion comments"
+    },
+    "config": {
+      "schema": "AffiliateConfig",
+      "description": "Global commission values"
+    },
+    "web_content": {
+      "schema": "WebContent",
+      "description": "Front-facing dynamic copy adjustments"
+    },
+    "tiktok_sync_logs": {
+      "schema": "TikTokSyncLog",
+      "description": "TikTok Orders fetch results journal logs"
+    },
+    "excel_logs": {
+      "schema": "ExcelUploadLog",
+      "description": "Records of Shopee cashback Excel uploads"
+    }
+  }
+}

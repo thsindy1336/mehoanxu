@@ -1,0 +1,98 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() <= 128;
+    }
+
+    // Users Collection rules
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isValidId(userId);
+    }
+
+    // Passwords Collection rules
+    match /passwords/{userId} {
+      allow read: if true;
+      allow write: if isValidId(userId);
+    }
+
+    // Short Links Collection
+    match /short_links/{linkId} {
+      allow read: if true;
+      allow write: if isValidId(linkId);
+    }
+
+    // Orders Collection
+    match /orders/{orderId} {
+      allow read: if true;
+      allow write: if isValidId(orderId);
+    }
+
+    // Withdraw Requests
+    match /withdraw_requests/{requestId} {
+      allow read: if true;
+      allow write: if isValidId(requestId);
+    }
+
+    // Transactions
+    match /transactions/{txId} {
+      allow read: if true;
+      allow write: if isValidId(txId);
+    }
+
+    // Notifications
+    match /notifications/{notifId} {
+      allow read: if true;
+      allow write: if isValidId(notifId);
+    }
+
+    // Tickets
+    match /tickets/{ticketId} {
+      allow read: if true;
+      allow write: if isValidId(ticketId);
+    }
+
+    // Vouchers
+    match /vouchers/{voucherId} {
+      allow read: if true;
+      allow write: if isValidId(voucherId);
+    }
+
+    // Comments
+    match /comments/{commentId} {
+      allow read: if true;
+      allow write: if isValidId(commentId);
+    }
+
+    // Config
+    match /config/{configId} {
+      allow read: if true;
+      allow write: if isValidId(configId);
+    }
+
+    // Web Content
+    match /web_content/{contentId} {
+      allow read: if true;
+      allow write: if isValidId(contentId);
+    }
+
+    // TikTok Sync Logs
+    match /tiktok_sync_logs/{logId} {
+      allow read: if true;
+      allow write: if isValidId(logId);
+    }
+
+    // Excel Logs Collection
+    match /excel_logs/{logId} {
+      allow read: if true;
+      allow write: if isValidId(logId);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Mê Hoàn Xu",
+  "description": "Nền tảng hoàn tiền mua sắm Shopee phong cách Coquette hồng pastel ngọt ngào, mềm mại, tích hợp tạo link rút gọn và đối soát đơn hàng tiện lợi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
